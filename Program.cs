@@ -5,7 +5,7 @@ Console.WriteLine("--------------------------------------------");
 
 string inputMessage = "Is this moose Enthusiastic?";
 
-bool mooseAsks(string question)
+bool MooseAsks(string question)
 {
     Console.Write($"{question} Y/N: ");
     string answer = Console.ReadLine().ToLower();
@@ -18,10 +18,12 @@ bool mooseAsks(string question)
 
     if (answer == "y")
     {
+        MooseSays("Correct :)");
         return true;
     }
     else
     {
+        MooseSays("Incorrect :(");
         return false;
     }
 }
@@ -62,5 +64,4 @@ void MooseSays(string message)
 
 MooseSays(inputMessage);
 
-bool isTrue = mooseAsks(inputMessage);
-Console.WriteLine(isTrue);
+bool isTrue = MooseAsks(inputMessage);

@@ -30,7 +30,7 @@ bool MooseAsks(string question)
     }
 }
 
-void questionFunc(string question, string correct, string incorrect)
+void MooseQuestionFunc(string question, string correct, string incorrect)
 {
     bool isTrue = MooseAsks(question);
     if (isTrue)
@@ -43,7 +43,7 @@ void questionFunc(string question, string correct, string incorrect)
     }
 }
 
-void runQuestion()
+void RunMooseQuestion()
 {
     List<string> questions = new List<string>()
 {
@@ -62,7 +62,7 @@ void runQuestion()
 
     for (int i = 0; i < questions.Count; i++)
     {
-        questionFunc(questions[i], correct[i], incorrect[i]);
+        MooseQuestionFunc(questions[i], correct[i], incorrect[i]);
     }
 };
 
@@ -100,6 +100,6 @@ void MooseSays(string message)
 
 Main();
 
-runQuestion();
+RunMooseQuestion();
 
 

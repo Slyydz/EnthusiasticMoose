@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 void Main()
 {
@@ -7,6 +8,7 @@ void Main()
     Console.WriteLine("--------------------------------------------");
 
 }
+
 bool MooseAsks(string question)
 {
     Console.Write($"{question} Y/N: ");
@@ -20,67 +22,49 @@ bool MooseAsks(string question)
 
     if (answer == "y")
     {
-        MooseSays("Correct :)");
         return true;
     }
     else
     {
-        MooseSays("Incorrect :(");
         return false;
     }
 }
 
-void CanadaQuestion()
+void MooseQuestionFunc(string question, string correct, string incorrect)
 {
-    bool isTrue = MooseAsks("Is Canada real?");
+    bool isTrue = MooseAsks(question);
     if (isTrue)
     {
-        MooseSays("Really? It seems very unlikely.");
+        MooseSays(correct);
     }
     else
     {
-        MooseSays("I  K N E W  I T !!!");
+        MooseSays(incorrect);
     }
 }
 
-void EnthusiasticQuestion()
+void RunMooseQuestion()
 {
-    bool isEnthusiastic = MooseAsks("Are you enthusiastic?");
-    if (isEnthusiastic)
-    {
-        MooseSays("Yay!");
-    }
-    else
-    {
-        MooseSays("You should try it!");
-    }
-}
+    List<string> questions = new List<string>()
+{
+    "Is Canada real?", "Are you enthusiastic?", "Do you love C# yet?", "Do you want to know a secret?"
+};
 
-void LoveCSharpQuestion()
+    List<string> correct = new List<string>()
 {
-    bool doesLoveCSharp = MooseAsks("Do you love C# yet?");
-    if (doesLoveCSharp)
-    {
-        MooseSays("Good job sucking up to your instructor!");
-    }
-    else
-    {
-        MooseSays("You will...oh, yes, you will...");
-    }
-}
+    "Really? It seems very unlikely.", "Yay!", "Good job sucking up to your instructor!", "ME TOO!!!! I love secrets...tell me one!"
+};
 
-void SecretQuestion()
+    List<string> incorrect = new List<string>()
 {
-    bool wantsSecret = MooseAsks("Do you want to know a secret?");
-    if (wantsSecret)
+    "I  K N E W  I T !!!", "You should try it!", "You will...oh, yes, you will...", "Oh, no...secrets are the best, I love to share them!"
+};
+
+    for (int i = 0; i < questions.Count; i++)
     {
-        MooseSays("ME TOO!!!! I love secrets...tell me one!");
+        MooseQuestionFunc(questions[i], correct[i], incorrect[i]);
     }
-    else
-    {
-        MooseSays("Oh, no...secrets are the best, I love to share them!");
-    }
-}
+};
 
 void MooseSays(string message)
 {
@@ -116,12 +100,6 @@ void MooseSays(string message)
 
 Main();
 
+RunMooseQuestion();
 
-MooseSays("Is this moose Enthusiastic?");
 
-bool isTrue = MooseAsks("Is this moose Enthusiastic?");
-
-CanadaQuestion();
-EnthusiasticQuestion();
-LoveCSharpQuestion();
-SecretQuestion();

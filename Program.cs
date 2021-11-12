@@ -1,10 +1,12 @@
 ﻿using System;
 
-Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
-Console.WriteLine("--------------------------------------------");
+void Main()
+{
 
-string inputMessage = "Is this moose Enthusiastic?";
+    Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
+    Console.WriteLine("--------------------------------------------");
 
+}
 bool MooseAsks(string question)
 {
     Console.Write($"{question} Y/N: ");
@@ -112,11 +114,12 @@ void MooseSays(string message)
     ");
 }
 
+Main();
 
 
-MooseSays(inputMessage);
+MooseSays("Is this moose Enthusiastic?");
 
-bool isTrue = MooseAsks(inputMessage);
+bool isTrue = MooseAsks("Is this moose Enthusiastic?");
 
 CanadaQuestion();
 EnthusiasticQuestion();

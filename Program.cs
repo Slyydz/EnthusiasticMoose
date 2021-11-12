@@ -3,9 +3,28 @@
 Console.WriteLine("Welcome to the Enthusiastic Moose Simulator!");
 Console.WriteLine("--------------------------------------------");
 
-Console.WriteLine("What would you like the Mosse to Say!");
+string inputMessage = "Is this moose Enthusiastic?";
 
-string inputMessage = Console.ReadLine();
+bool mooseAsks(string question)
+{
+    Console.Write($"{question} Y/N: ");
+    string answer = Console.ReadLine().ToLower();
+
+    while (answer != "y" && answer != "n")
+    {
+        Console.WriteLine("Please input Y or N.");
+        answer = Console.ReadLine().ToLower();
+    }
+
+    if (answer == "y")
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
 
 void MooseSays(string message)
 {
@@ -39,4 +58,9 @@ void MooseSays(string message)
     ");
 }
 
+
+
 MooseSays(inputMessage);
+
+bool isTrue = mooseAsks(inputMessage);
+Console.WriteLine(isTrue);

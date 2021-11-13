@@ -51,24 +51,44 @@ namespace Intro
 
             void RunMooseQuestion()
             {
-                List<string> questions = new List<string>()
+                Dictionary<string, string> CanadaQuest = new Dictionary<string, string>()
 {
-    "Is Canada real?", "Are you enthusiastic?", "Do you love C# yet?", "Do you want to know a secret?"
+    { "q", "Is Canada real?" },
+    { "c", "Really? It seems very unlikely." },
+    { "i", "I  K N E W  I T !!!" }
 };
 
-                List<string> correct = new List<string>()
+                Dictionary<string, string> EnthusQuest = new Dictionary<string, string>()
 {
-    "Really? It seems very unlikely.", "Yay!", "Good job sucking up to your instructor!", "ME TOO!!!! I love secrets...tell me one!"
+    { "q", "Are you enthusiastic?" },
+    { "c", "Yay!" },
+    { "i", "You should try it!" }
 };
 
-                List<string> incorrect = new List<string>()
+                Dictionary<string, string> LoveQuest = new Dictionary<string, string>()
 {
-    "I  K N E W  I T !!!", "You should try it!", "You will...oh, yes, you will...", "Oh, no...secrets are the best, I love to share them!"
+    { "q", "Do you love C# yet?" },
+    { "c", "Good job sucking up to your instructor!" },
+    { "i", "You will...oh, yes, you will..." }
 };
 
-                for (int i = 0; i < questions.Count; i++)
+                Dictionary<string, string> SecretQuest = new Dictionary<string, string>()
+{
+    { "q", "Do you want to know a secret?" },
+    { "c", "ME TOO!!!! I love secrets...tell me one!" },
+    { "i", "Oh, no...secrets are the best, I love to share them!" }
+};
+
+
+
+                List<Dictionary<string, string>> questions = new List<Dictionary<string, string>>()
+{
+    CanadaQuest, EnthusQuest, LoveQuest, SecretQuest
+};
+
+                foreach (Dictionary<string, string> taco in questions)
                 {
-                    MooseQuestionFunc(questions[i], correct[i], incorrect[i]);
+                    MooseQuestionFunc(taco["q"], taco["c"], taco["i"]);
                 }
             };
 
